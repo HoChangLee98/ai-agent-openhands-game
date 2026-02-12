@@ -93,9 +93,26 @@ function renderScore(score) {
   byId("draws").textContent = String(score.draws);
 }
 
+function rateText(numerator, denominator) {
+  if (!denominator) return "-";
+  return `${((numerator / denominator) * 100).toFixed(1)}%`;
+}
+
 function renderStats(score, mode) {
-  byId("total-games").textContent = String(totalGames(score));
+  const total = totalGames(score);
+  const wins = score.wins || 0;
+  const losses = score.losses || 0;
+  const draws = score.draws || 0;
+
+  byId("total-games").textContent = String(total);
   byId("participants").textContent = mode === "duo" ? "2명" : "1명";
+
+  byId("p1-winrate-label").textContent = mode === "duo" ? "플레이어 1 승률" : "나 승률";
+  byId("p2-winrate-label").textContent = mode === "duo" ? "플레이어 2 승률" : "컴퓨터 승률";
+
+  byId("p1-winrate").textContent = rateText(wins, total);
+  byId("p2-winrate").textContent = rateText(losses, total);
+  byId("draw-rate").textContent = rateText(draws, total);
 }
 
 function setRound(player, opponent, result) {
