@@ -10,7 +10,7 @@
     <main class="app">
       <header class="header">
         <h1>가위바위보</h1>
-        <p class="subtitle">버튼을 눌러 컴퓨터와 대결하세요.</p>
+        <p class="subtitle">모드를 선택하고 버튼을 눌러 플레이하세요.</p>
       </header>
 
       <section class="panel" aria-label="게임 조작">
@@ -20,19 +20,30 @@
           <button class="choice" type="button" data-choice="보">보</button>
         </div>
         <div class="controls">
-          <button id="reset" type="button" class="secondary">점수 초기화</button>
+          <div class="mode">
+            <label for="mode" class="mode-label">플레이어 수</label>
+            <select id="mode" class="mode-select">
+              <option value="solo">1명 (vs 컴퓨터)</option>
+              <option value="duo">2명 (로컬)</option>
+            </select>
+          </div>
+          <div class="control-buttons">
+            <button id="cancel-turn" type="button" class="secondary" hidden>선택 취소</button>
+            <button id="reset" type="button" class="secondary">점수 초기화</button>
+          </div>
         </div>
+        <p id="turn-hint" class="muted">1명 모드: 나 vs 컴퓨터</p>
       </section>
 
       <section class="panel" aria-label="결과">
         <div class="grid">
           <div class="card">
-            <div class="label">나</div>
+            <div id="player-label" class="label">나</div>
             <div id="player-choice" class="value">-</div>
           </div>
           <div class="card">
-            <div class="label">컴퓨터</div>
-            <div id="cpu-choice" class="value">-</div>
+            <div id="opponent-label" class="label">컴퓨터</div>
+            <div id="opponent-choice" class="value">-</div>
           </div>
           <div class="card">
             <div class="label">결과</div>
@@ -65,8 +76,8 @@
             <div id="total-games" class="stat-value">0</div>
           </div>
           <div class="stat">
-            <div class="stat-label">경기 인원 수</div>
-            <div id="participants" class="stat-value">2명</div>
+            <div class="stat-label">플레이어 수</div>
+            <div id="participants" class="stat-value">1명</div>
           </div>
         </div>
       </section>
