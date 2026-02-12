@@ -2,6 +2,19 @@
 
 간단한 **가위바위보(rock-paper-scissors)** 웹 게임입니다.
 
+## GitHub Pages (공개 링크)
+
+GitHub Pages를 켜면 다른 사람도 브라우저에서 바로 접속해서 플레이할 수 있습니다.
+
+1. GitHub → **Settings → Pages**
+2. Source: **Deploy from a branch**
+3. Branch: `main` / **(root)**
+4. Save
+
+설정이 완료되면 아래 URL로 접근 가능합니다:
+
+- `https://HoChangLee98.github.io/ai-agent-openhands-game/`
+
 ## 기능
 
 - 가위/바위/보 버튼으로 플레이
@@ -16,7 +29,6 @@
 - 점수/히스토리는 `localStorage`에 저장되어 새로고침해도 유지
 
 > 참고: 플레이어 수(모드)를 변경하면 점수/히스토리가 초기화됩니다.
-
 
 ## 실행 방법
 
@@ -38,7 +50,6 @@ python -m http.server 8000
 > ```bash
 > python -m http.server 8002
 > ```
-
 
 브라우저에서 접속:
 
