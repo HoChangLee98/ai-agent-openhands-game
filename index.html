@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가위바위보</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>가위바위보</h1>
+        <p class="subtitle">버튼을 눌러 컴퓨터와 대결하세요.</p>
+      </header>
+
+      <section class="panel" aria-label="게임 조작">
+        <div class="buttons" role="group" aria-label="선택">
+          <button class="choice" type="button" data-choice="가위">가위</button>
+          <button class="choice" type="button" data-choice="바위">바위</button>
+          <button class="choice" type="button" data-choice="보">보</button>
+        </div>
+        <div class="controls">
+          <button id="reset" type="button" class="secondary">점수 초기화</button>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="결과">
+        <div class="grid">
+          <div class="card">
+            <div class="label">나</div>
+            <div id="player-choice" class="value">-</div>
+          </div>
+          <div class="card">
+            <div class="label">컴퓨터</div>
+            <div id="cpu-choice" class="value">-</div>
+          </div>
+          <div class="card">
+            <div class="label">결과</div>
+            <div id="result" class="value" aria-live="polite">-</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="점수">
+        <div class="score">
+          <div class="score-item">
+            <div class="score-label">승</div>
+            <div id="wins" class="score-value">0</div>
+          </div>
+          <div class="score-item">
+            <div class="score-label">패</div>
+            <div id="losses" class="score-value">0</div>
+          </div>
+          <div class="score-item">
+            <div class="score-label">무</div>
+            <div id="draws" class="score-value">0</div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <small>로컬에서 동작하는 간단한 가위바위보 게임</small>
+      </footer>
+    </main>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
