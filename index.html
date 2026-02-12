@@ -58,6 +58,29 @@
         </div>
       </section>
 
+      <section class="panel" aria-label="통계">
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-label">총 경기 수</div>
+            <div id="total-games" class="stat-value">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">경기 인원 수</div>
+            <div id="participants" class="stat-value">2명</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="히스토리">
+        <div class="panel-head">
+          <h2 class="panel-title">히스토리</h2>
+          <button id="clear-history" type="button" class="secondary">히스토리 초기화</button>
+        </div>
+        <p id="history-empty" class="muted">아직 기록이 없어요. 한 판 해보세요!</p>
+        <ol id="history" class="history"></ol>
+      </section>
+
+
       <footer class="footer">
         <small>로컬에서 동작하는 간단한 가위바위보 게임</small>
       </footer>
