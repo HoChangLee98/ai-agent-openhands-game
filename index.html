@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가위바위보</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>가위바위보</h1>
+        <p class="subtitle">모드를 선택하고 버튼을 눌러 플레이하세요.</p>
+      </header>
+
+      <section class="panel" aria-label="게임 조작">
+        <div class="buttons" role="group" aria-label="선택">
+          <button class="choice" type="button" data-choice="가위">가위</button>
+          <button class="choice" type="button" data-choice="바위">바위</button>
+          <button class="choice" type="button" data-choice="보">보</button>
+        </div>
+        <div class="controls">
+          <div class="mode">
+            <label for="mode" class="mode-label">플레이어 수</label>
+            <select id="mode" class="mode-select">
+              <option value="solo">1명 (vs 컴퓨터)</option>
+              <option value="duo">2명 (로컬)</option>
+            </select>
+          </div>
+          <div class="control-buttons">
+            <button id="cancel-turn" type="button" class="secondary" hidden>선택 취소</button>
+            <button id="reset" type="button" class="secondary">점수 초기화</button>
+          </div>
+        </div>
+        <p id="turn-hint" class="muted">1명 모드: 나 vs 컴퓨터</p>
+      </section>
+
+      <section class="panel" aria-label="결과">
+        <div class="grid">
+          <div class="card">
+            <div id="player-label" class="label">나</div>
+            <div id="player-choice" class="value">-</div>
+          </div>
+          <div class="card">
+            <div id="opponent-label" class="label">컴퓨터</div>
+            <div id="opponent-choice" class="value">-</div>
+          </div>
+          <div class="card">
+            <div class="label">결과</div>
+            <div id="result" class="value" aria-live="polite">-</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="점수">
+        <div class="score">
+          <div class="score-item">
+            <div class="score-label">승</div>
+            <div id="wins" class="score-value">0</div>
+          </div>
+          <div class="score-item">
+            <div class="score-label">패</div>
+            <div id="losses" class="score-value">0</div>
+          </div>
+          <div class="score-item">
+            <div class="score-label">무</div>
+            <div id="draws" class="score-value">0</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="통계">
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-label">총 경기 수</div>
+            <div id="total-games" class="stat-value">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">플레이어 수</div>
+            <div id="participants" class="stat-value">1명</div>
+          </div>
+          <div class="stat">
+            <div id="p1-winrate-label" class="stat-label">나 승률</div>
+            <div id="p1-winrate" class="stat-value">-</div>
+          </div>
+          <div class="stat">
+            <div id="p2-winrate-label" class="stat-label">컴퓨터 승률</div>
+            <div id="p2-winrate" class="stat-value">-</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">무승부율</div>
+            <div id="draw-rate" class="stat-value">-</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="히스토리">
+        <div class="panel-head">
+          <h2 class="panel-title">히스토리</h2>
+          <button id="clear-history" type="button" class="secondary">히스토리 초기화</button>
+        </div>
+        <p id="history-empty" class="muted">아직 기록이 없어요. 한 판 해보세요!</p>
+        <ol id="history" class="history"></ol>
+      </section>
+
+
+      <footer class="footer">
+        <small>로컬에서 동작하는 간단한 가위바위보 게임</small>
+      </footer>
+    </main>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
